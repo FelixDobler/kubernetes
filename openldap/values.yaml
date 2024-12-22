@@ -1,0 +1,35 @@
+# helm upgrade -n openldap openldap helm-openldap/openldap-stack-ha -f values.yaml
+
+global:
+  adminUser: admin
+  adminPassword: Test123
+  ldapDomain: doblerones.de
+replicaCount: 1
+replication:
+  enabled: false
+
+phpldapadmin:
+  enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    hosts:
+      - phpldapadmin.doblerones.de
+    tls:
+    - hosts:
+      - phpldapadmin.doblerones.de
+      secretName: phpldapadmin-tls
+ltb-passwd:
+  ingress:
+    enabled: true
+    # annotations:
+      # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    ingressClassName: nginx
+    hosts:
+      - ldap-pw.doblerones.de
+    # tls:
+    # - hosts:
+      # - ldap-pw.doblerones.de
+      # secretName: ltb-passwd-tls

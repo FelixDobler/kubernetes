@@ -1,0 +1,11 @@
+# helm install -n keycloak --create-namespace keycloak bitnami/keycloak -f values.yaml
+
+ingress:
+  enabled: true
+  tls: true
+  hostname: keycloak.doblerones.de
+  ingressClassName: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+proxy: edge
+# production: true

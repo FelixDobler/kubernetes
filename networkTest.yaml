@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: network-check
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: network-check
+  template:
+    metadata:
+      labels:
+        app: network-check
+    spec:
+      containers:
+        - name: ping-google
+          image: busybox
+          command:
+            - /bin/sh
+            - -c
+            - |
+              while true; do
+                echo "Checking network connectivity..."
+                sleep 30
+              done
+          resources:
+            requests:
+              cpu: 10m
+              memory: 20Mi
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  # Liveness check: if both pings fail, restart the container
+                  ping -c 1 -w 5 google.com && ping6 -c 1 -w 5 google.com
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  # Readiness check: must be able to ping both IPv4 and IPv6
+                  ping -c 1 -w 5 google.com && ping6 -c 1 -w 5 google.com
+            initialDelaySeconds: 5
+            periodSeconds: 30

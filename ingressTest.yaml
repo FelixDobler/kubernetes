@@ -1,0 +1,27 @@
+# kubectl create -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/docs/examples/http-svc.yaml
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testing
+  labels:
+    name: testing
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: k8s-test.test.doblerones.de
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: http-svc
+            port: 
+              number: 80
+  tls:
+  - hosts:
+    - k8s-test.test.doblerones.de
+    secretName: k8s-test-tls

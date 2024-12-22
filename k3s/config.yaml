@@ -1,0 +1,29 @@
+disable:
+  - "traefik"
+  # - "servicelb"
+
+flannel-iface: "eno1"
+
+cluster-cidr: fd00:cafe:42::/56,10.42.0.0/16
+service-cidr: fd00:cafe:43::/112,10.43.0.0/16
+# advertise-address: 
+  # - "fe80::4e52:62ff:feba:a9bc"
+  # - "192.168.1.100"
+
+# bind-address:
+  # - "fe80::4e52:62ff:feba:a9bc"
+node-ip:
+  - " fd00:cafe:41::1"
+  - "192.168.1.100"
+# node-external-ip:
+  # - "fe80::1485:5fff:fedd:944a"
+  # - "192.168.1.100"
+flannel-ipv6-masq: true
+
+# kubelet-arg:
+  # - "node-ip=::"
+
+### Needed to run wireguard in a pod
+# kubelet-arg:
+  # - "allowed-unsafe-sysctls=net.ipv4.conf.all.src_valid_mark"
+  # - "allowed-unsafe-sysctls=net.ipv4.ip_forward"

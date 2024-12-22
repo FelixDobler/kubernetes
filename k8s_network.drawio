@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0" version="24.7.17">
+  <diagram name="Page-1" id="HOYsGyD5VyWC2tabC3Eu">
+    <mxGraphModel dx="2074" dy="1106" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-4" value="Futro" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1070" y="60" width="1430" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-8" value="&lt;div&gt;HomeNet&lt;/div&gt;&lt;div&gt;192.168.1.100/24&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-13" value="&lt;div&gt;k8s&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1460" y="110" width="1000" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-15" value="wireguard pod" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1530" y="270" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-7" value="&lt;div&gt;WireGuard&lt;/div&gt;&lt;div&gt;10.9.0.2/24&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1550" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="0755bJ1tEkr0BP0yuWLp-7" target="0755bJ1tEkr0BP0yuWLp-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-16" value="&lt;div&gt;Cluster IPs&lt;/div&gt;10.42.0.0/16" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="1550" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-17" value="&lt;div&gt;Service IPs&lt;/div&gt;&lt;div&gt;10.43.0.0/16&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="1860" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-18" value="&lt;div&gt;Cluster DNS&lt;/div&gt;&lt;div&gt;10.43.0.10&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="2260" y="130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-20" value="Ingress-Nginx" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1990" y="270" width="300" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-21" value="&lt;div&gt;service&lt;/div&gt;&lt;div&gt;ingress[...]nginx.svc.[...]&lt;/div&gt;&lt;div&gt;10.43.XX.YY&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1985" y="350" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="0755bJ1tEkr0BP0yuWLp-22" target="0755bJ1tEkr0BP0yuWLp-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-22" value="&lt;div&gt;ClusterIP&lt;/div&gt;&lt;div&gt;10.42.XX.YY&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1700" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-2" value="VServer" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="140" y="170" width="300" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-5" value="&lt;div&gt;WireGuard&lt;/div&gt;&lt;div&gt;10.9.0.1/24&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="269.1304347826087" width="120" height="62.608695652173914" as="geometry" />
+        </mxCell>
+        <mxCell id="0755bJ1tEkr0BP0yuWLp-6" value="&lt;div&gt;Public&lt;/div&gt;&lt;div&gt;2.53.XX.YY&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="269.1304347826087" width="120" height="62.608695652173914" as="geometry" />
+        </mxCell>
+        <mxCell id="26bJOVKfhsq6sAHD_lt6-1" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Proxy??&lt;/h1&gt;&lt;p&gt;Use haproxy to manage incoming requests.&lt;br&gt;Have one host that deals with all generic doblerones.de.&lt;br&gt;- Serve websites for own services/forward to nextcloud&lt;br&gt;- Forward the rest to wireguard using proxy protocol&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="150" y="360" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="26bJOVKfhsq6sAHD_lt6-2" value="HAProxy" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="26bJOVKfhsq6sAHD_lt6-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.65;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="26bJOVKfhsq6sAHD_lt6-2" target="0755bJ1tEkr0BP0yuWLp-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="441" />
+              <mxPoint x="410" y="441" />
+              <mxPoint x="410" y="333" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
