@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metallb-debug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metallb-debug
+  template:
+    metadata:
+      labels:
+        app: metallb-debug
+    spec:
+      containers:
+        - name: debug
+          image: nicolaka/netshoot
+          command:
+            - /bin/sh
+            - -c
+            - |
+              sleep 1d
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: metallb-debug
+spec:
+  selector:
+    app: metallb-debug
+  type: LoadBalancer
+  # ipFamilyPolicy: RequireDualStack
+  # ipFamilies:
+    # - IPv6
+    # - IPv4
+  ports:
+  - port: 8000  
+    targetPort: 8000

@@ -1,0 +1,1 @@
+add modprobe dm-snapshot e.g. to /etc/modules-load.d/modules.conf

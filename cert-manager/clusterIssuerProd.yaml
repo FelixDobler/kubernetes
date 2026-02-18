@@ -3,6 +3,7 @@ kind: ClusterIssuer
 metadata:
   name: letsencrypt-prod
 spec:
+
   acme:
     # The ACME server URL
     server: https://acme-v02.api.letsencrypt.org/directory
@@ -16,3 +17,7 @@ spec:
       - http01:
           ingress:
             ingressClassName: nginx
+            ingressTemplate:
+              metadata:
+                annotations:
+                  acme.cert-manager.io/http01-edit-in-place: "true"

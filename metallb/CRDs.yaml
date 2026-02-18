@@ -1,18 +1,28 @@
+### TODO ###
+# change ipv4 cidr to not overlap with normal service cidr
+
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: first-pool
+  name: external-pool
   namespace: metallb-system
 spec:
   addresses:
-  - 10.44.0.0/16
-  - fd00:cafe:44::/64
-  # - 192.168.10.0/24
-  # - 192.168.9.1-192.168.9.5
-  # - fc00:f853:0ccd:e799::/124
+  - 10.41.78.0/24
+  - fd00:cafe:4178::/56
+---
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: vserver
+  namespace: metallb-system
+spec:
+  myASN: 44748
+  peerASN: 44747
+  peerAddress: 10.41.0.1
 ---
 apiVersion: metallb.io/v1beta1
-kind: L2Advertisement
+kind: BGPAdvertisement
 metadata:
-  name: example
+  name: advertise-all
   namespace: metallb-system

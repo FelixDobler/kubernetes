@@ -50,3 +50,29 @@ spec:
     name: http
   selector:
     app: http-svc
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: http-test
+  labels:
+    name: http-test
+  annotations: 
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: k8s.doblerones.de
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: http-svc
+            port: 
+              number: 80
+  tls:
+  - hosts:
+    - k8s.doblerones.de
+    secretName: http-test5

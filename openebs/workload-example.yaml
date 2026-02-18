@@ -1,0 +1,29 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+ name: csi-lvmpv
+spec:
+ storageClassName: openebs-lvmpv
+ accessModes:
+   - ReadWriteOnce
+ resources:
+   requests:
+     storage: 4Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: csi-lvmpv-test
+spec:
+  containers:
+    - name: debian
+      image: debian:latest
+      command: ["/bin/bash"]
+      args: ["-c", "while true; do echo hello; sleep 10; done"]
+      volumeMounts:
+        - mountPath: /mnt
+          name: csi-lvmpv
+  volumes:
+    - name: csi-lvmpv
+      persistentVolumeClaim:
+        claimName: csi-lvmpv

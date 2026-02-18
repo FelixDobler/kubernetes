@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uptime-kuma
+  labels:
+    name: uptime-kuma
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: uptime.k8s.doblerones.de
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: uptime-kuma
+            port: 
+              number: 80
+  tls:
+  - hosts:
+    - uptime.k8s.doblerones.de
+    secretName: uptime-kuma-tls
+  
