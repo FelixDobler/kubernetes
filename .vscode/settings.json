@@ -1,5 +1,9 @@
 {
     "terminal.integrated.env.windows": {
         "KUBECONFIG": "C:/Users/felix/Desktop/k3s.yaml"
-    }
+    },
+    "cSpell.words": [
+        "fluxcd",
+        "podinfo"
+    ]
 }
