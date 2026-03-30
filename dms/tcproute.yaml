@@ -1,0 +1,59 @@
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: dms-smtp
+  namespace: dms
+spec:
+  parentRefs:
+  - name: dms-gateway
+    namespace: kgateway-system
+    sectionName: smtp
+  rules:
+  - backendRefs:
+    - name: docker-mailserver
+      port: 25
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: dms-submissions
+  namespace: dms
+spec:
+  parentRefs:
+  - name: dms-gateway
+    namespace: kgateway-system
+    sectionName: submissions
+  rules:
+  - backendRefs:
+    - name: docker-mailserver
+      port: 465
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: dms-submission
+  namespace: dms
+spec:
+  parentRefs:
+  - name: dms-gateway
+    namespace: kgateway-system
+    sectionName: submission
+  rules:
+  - backendRefs:
+    - name: docker-mailserver
+      port: 587
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: dms-imaps
+  namespace: dms
+spec:
+  parentRefs:
+  - name: dms-gateway
+    namespace: kgateway-system
+    sectionName: imaps
+  rules:
+  - backendRefs:
+    - name: docker-mailserver
+      port: 993
