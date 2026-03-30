@@ -1,0 +1,7 @@
+# helm repo add openebs https://openebs.github.io/openebs
+# helm repo update
+# helm install openebs --namespace openebs openebs/openebs --create-namespace \
+# --set engines.local.lvm.enabled=true \
+# --set engines.local.hostpath.enabled=false
+# --set engines.local.zfs.enabled=false \
+# --set engines.replicated.mayastor.enabled=false \

@@ -1,0 +1,5 @@
+# helm repo add metallb https://metallb.github.io/metallb
+# helm upgrade --install --create-namespace -n metallb-system metallb metallb/metallb -f values.yaml
+speaker:
+  frr:
+    enabled: true

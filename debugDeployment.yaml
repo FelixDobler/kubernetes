@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: network-debug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: network-debug
+  template:
+    metadata:
+      labels:
+        app: network-debug
+    spec:
+      containers:
+        - name: debug
+          image: nicolaka/netshoot
+          command:
+            - /bin/sh
+            - -c
+            - |
+              sleep 1d
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: network-debug
+spec:
+  selector:
+    app: network-debug
+  type: ClusterIP
+  # ipFamilyPolicy: RequireDualStack
+  # ipFamilies:
+    # - IPv6
+    # - IPv4
+  ports:
+  - port: 8080  
+    targetPort: 8080

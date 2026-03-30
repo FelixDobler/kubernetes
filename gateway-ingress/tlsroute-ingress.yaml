@@ -1,0 +1,14 @@
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TLSRoute
+metadata:
+  name: tlsroute
+  namespace: ingress-nginx
+spec:
+  parentRefs:
+    - name: https
+      namespace: kgateway-system
+      sectionName: https-passthrough
+  rules:
+    - backendRefs:
+        - name: ingress-nginx-controller
+          port: 443

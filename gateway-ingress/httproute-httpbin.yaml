@@ -1,0 +1,21 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: httpbin
+  namespace: httpbin
+spec: 
+  hostnames:
+    - test.k8s.doblerones.de
+  rules:
+    - matches:
+      - path: 
+          type: PathPrefix
+          value: /httpbin
+      backendRefs:
+      - name: httpbin
+        port: 8000
+  parentRefs:
+    - kind: Gateway
+      name: https
+      sectionName: https
+      namespace: kgateway-system
