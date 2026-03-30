@@ -1,0 +1,40 @@
+kind: Gateway
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: https
+  namespace: kgateway-system
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  gatewayClassName: kgateway
+  listeners:
+  - name: https
+    protocol: HTTPS
+    port: 443
+    hostname: "test.k8s.doblerones.de"
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: test-tls
+    allowedRoutes:
+      namespaces:
+        from: All
+  - name: https-ingress
+    protocol: HTTPS
+    port: 443
+    hostname: "test-ingress.k8s.doblerones.de"
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: test-ingress-tls
+    allowedRoutes:
+      namespaces:
+        from: All
+  - name: https-passthrough
+    protocol: TLS
+    port: 443
+    tls:
+      mode: Passthrough
+    allowedRoutes:
+      namespaces:
+        from: All

@@ -1,8 +1,0 @@
-# helm install nginx-ingress oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.4.0 -n nginx-ingress --create-namespace -f values.yaml
-
-controller:
-  customConfigMap: nginx-config
-  service:
-    type: ClusterIP
-    clusterIP: 10.43.1.1
-

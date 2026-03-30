@@ -4,16 +4,16 @@
 ######### helm upgrade --install -n ingress-nginx --create-namespace ingress-nginx ingress-nginx/ingress-nginx -f values.yaml
 controller:
   service:
-    type: LoadBalancer
-    annotations:
-      metallb.universe.tf/loadBalancerIPs: 10.41.78.1,fd00:cafe:4178::1
-    ipFamilies:
-      - IPv6
-      - IPv4
-    ipFamilyPolicy: RequireDualStack
+    type: ClusterIP
+    # annotations:
+      # metallb.universe.tf/loadBalancerIPs: 10.41.78.1,fd00:cafe:4178::1
+    # ipFamilies:
+      # - IPv6
+      # - IPv4
+    # ipFamilyPolicy: RequireDualStack
     # externalTrafficPolicy: Local
-  config:
-    enable-real-ip: "true"
+  # config:
+    # enable-real-ip: "true"
     # use-proxy-protocol: "true"
     # set-real-ip-from: 
     # proxy-real-ip-cidr: "10."

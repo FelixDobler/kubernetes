@@ -42,7 +42,7 @@ metadata:
   labels:
     app: http-svc
 spec:
-  ipFamilyPolicy: RequireDualStack
+  # ipFamilyPolicy: RequireDualStack
   ports:
   - port: 80
     targetPort: 8080
@@ -57,8 +57,8 @@ metadata:
   name: http-test
   labels:
     name: http-test
-  annotations: 
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  # annotations: 
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
   rules:
@@ -72,7 +72,7 @@ spec:
             name: http-svc
             port: 
               number: 80
-  tls:
-  - hosts:
-    - k8s.doblerones.de
-    secretName: http-test5
+  # tls:
+  # - hosts:
+    # - k8s.doblerones.de
+    # secretName: http-test
