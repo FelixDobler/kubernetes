@@ -1,0 +1,76 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kgateway-system
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: kgateway-crds
+  namespace: kgateway-system
+spec:
+  interval: 12h
+  url: oci://cr.kgateway.dev/kgateway-dev/charts/kgateway-crds
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: copy
+  ref:
+    semver: "2.2.1"
+    # tag: "2.2.1"
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kgateway-crds
+  namespace: kgateway-system
+spec:
+  interval: 12h
+  install:
+    strategy:
+      name: RetryOnFailure
+  upgrade:
+    strategy:
+      name: RetryOnFailure
+  chartRef:
+    kind: OCIRepository
+    name: kgateway-crds
+  values: {}
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: kgateway
+  namespace: kgateway-system
+spec:
+  interval: 12h
+  url: oci://cr.kgateway.dev/kgateway-dev/charts/kgateway
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: copy
+  ref:
+    semver: "2.2.1"
+    # tag: "2.2.1"
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kgateway
+  namespace: kgateway-system
+spec:
+  dependsOn:
+    - name: kgateway-crds
+  interval: 12h
+  install:
+    strategy:
+      name: RetryOnFailure
+  upgrade:
+    strategy:
+      name: RetryOnFailure
+  chartRef:
+    kind: OCIRepository
+    name: kgateway
+  values:
+    controller:
+    extraEnv:
+      KGW_ENABLE_GATEWAY_API_EXPERIMENTAL_FEATURES: "true"
