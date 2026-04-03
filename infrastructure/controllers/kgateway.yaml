@@ -1,3 +1,5 @@
+# TODO find way to include kubernetes gateway api
+
 ---
 apiVersion: v1
 kind: Namespace
@@ -72,5 +74,5 @@ spec:
     name: kgateway
   values:
     controller:
-    extraEnv:
-      KGW_ENABLE_GATEWAY_API_EXPERIMENTAL_FEATURES: "true"
+      extraEnv:
+        KGW_ENABLE_GATEWAY_API_EXPERIMENTAL_FEATURES: "true"
