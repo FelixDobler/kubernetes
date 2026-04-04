@@ -18,5 +18,5 @@ spec:
             parentRefs:
               - kind: Gateway
                 namespace: kgateway-system
-                name: http_s
+                name: http-s
                 sectionName: http

@@ -7,7 +7,7 @@ metadata:
   namespace: kgateway-system
 spec:
   parentRefs:
-    - name: http_s
+    - name: http-s
       kind: Gateway
       sectionName: http # attaches only to the HTTP listener
   rules:
