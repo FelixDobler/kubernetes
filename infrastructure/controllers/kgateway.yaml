@@ -1,5 +1,6 @@
 # TODO find way to include kubernetes gateway api
-
+# kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.0/standard-install.yaml
+# kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/experimental-install.yaml
 ---
 apiVersion: v1
 kind: Namespace

@@ -1,5 +1,0 @@
-# https://kubernetes.io/docs/concepts/services-networking/ingress/#default-ingress-class
-# change ingressclass resource, add annotation
-
-  annotations:
-    ingressclass.kubernetes.io/is-default-class: "true"

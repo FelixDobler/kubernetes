@@ -1,3 +1,7 @@
+###################################
+### DEPRECATED IN FAVOR OF FLUX ###
+###################################
+
 # kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.0/standard-install.yaml
 
 # experimental gateway api
@@ -7,6 +11,6 @@
 
 # helm upgrade -i -n kgateway-system kgateway oci://cr.kgateway.dev/kgateway-dev/charts/kgateway --version v2.2.1 -f values.yaml
 
-controller:
-  extraEnv:
-    KGW_ENABLE_GATEWAY_API_EXPERIMENTAL_FEATURES: "true"
+# controller:
+#   extraEnv:
+#     KGW_ENABLE_GATEWAY_API_EXPERIMENTAL_FEATURES: "true"

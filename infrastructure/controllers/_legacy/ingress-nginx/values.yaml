@@ -17,9 +17,3 @@ controller:
     # use-proxy-protocol: "true"
     # set-real-ip-from: 
     # proxy-real-ip-cidr: "10."
-  # extraArgs:
-    # - --tcp-services-configmap=ingress-nginx/tcp-services
-
-# tcp:
-  # 465: "mail/docker-mailserver:10465:PROXY:PROXY"
-  # 993: "mail/docker-mailserver:10993:PROXY:PROXY"

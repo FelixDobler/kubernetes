@@ -16,6 +16,7 @@ spec:
       - http01:
           gatewayHTTPRoute:
             parentRefs:
-              - name: cert-manager-gateway
+              - kind: Gateway
                 namespace: kgateway-system
-                kind: Gateway
+                name: http_s
+                sectionName: http

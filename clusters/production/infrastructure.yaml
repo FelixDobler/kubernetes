@@ -2,9 +2,27 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
+  name: infra-crds
+  namespace: flux-system
+spec:
+  interval: 1h
+  retryInterval: 2m
+  timeout: 5m
+  sourceRef:
+    kind: ExternalArtifact
+    name: infrastructure
+  path: ./crds
+  prune: false
+  wait: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
   name: infra-controllers
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: infra-crds
   interval: 1h
   retryInterval: 2m
   timeout: 5m
@@ -32,10 +50,10 @@ spec:
   path: ./configs
   prune: true
   # patches:
-    # - patch: |
-        # - op: replace
-          # path: /spec/acme/server
-          # value: https://acme-v02.api.letsencrypt.org/directory
-      # target:
-        # kind: ClusterIssuer
-        # name: letsencrypt
+  # - patch: |
+  # - op: replace
+  # path: /spec/acme/server
+  # value: https://acme-v02.api.letsencrypt.org/directory
+  # target:
+  # kind: ClusterIssuer
+  # name: letsencrypt

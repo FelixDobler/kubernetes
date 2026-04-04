@@ -3,7 +3,12 @@
         "KUBECONFIG": "C:/Users/felix/Desktop/k3s.yaml"
     },
     "cSpell.words": [
+        "crds",
         "fluxcd",
+        "imaps",
+        "jetstack",
+        "kgateway",
+        "mailserver",
         "podinfo"
     ]
 }
