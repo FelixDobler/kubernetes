@@ -4,8 +4,6 @@ kind: Kustomization
 metadata:
   name: infra-crds
   namespace: flux-system
-  annotations:
-    kustomize.toolkit.fluxcd.io/ssa: IfNotPresent 
 spec:
   interval: 1h
   retryInterval: 2m
