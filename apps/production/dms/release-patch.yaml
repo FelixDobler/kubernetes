@@ -1,4 +1,6 @@
 ---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 spec:
   chart:
     spec:
