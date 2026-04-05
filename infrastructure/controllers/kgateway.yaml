@@ -16,8 +16,8 @@ spec:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
   ref:
-    # semver: "2.2.1"
-    tag: "2.2.1"
+    semver: "2.2.1"
+    # tag: "2.2.1"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -49,8 +49,8 @@ spec:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
   ref:
-    # semver: "2.2.1"
-    tag: "2.2.1"
+    semver: "2.2.1"
+    # tag: "2.2.1"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
