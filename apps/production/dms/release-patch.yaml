@@ -1,0 +1,9 @@
+---
+spec:
+  chart:
+    spec:
+      version: "5.1.1"
+  values:
+    deployment:
+      env:
+        OVERRIDE_HOSTNAME: mail-test.doblerones.de # You must OVERRIDE this!

@@ -7,6 +7,5 @@ spec:
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt
-  dnsNames:
-  - mail-test.doblerones.de
+  dnsNames: []
   secretName: mail-tls

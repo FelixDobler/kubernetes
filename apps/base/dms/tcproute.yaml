@@ -5,7 +5,7 @@ metadata:
   namespace: dms
 spec:
   parentRefs:
-  - name: dms-gateway
+  - name: mail
     namespace: kgateway-system
     sectionName: smtp
   rules:
@@ -20,7 +20,7 @@ metadata:
   namespace: dms
 spec:
   parentRefs:
-  - name: dms-gateway
+  - name: mail
     namespace: kgateway-system
     sectionName: submissions
   rules:
@@ -35,7 +35,7 @@ metadata:
   namespace: dms
 spec:
   parentRefs:
-  - name: dms-gateway
+  - name: mail
     namespace: kgateway-system
     sectionName: submission
   rules:
@@ -50,7 +50,7 @@ metadata:
   namespace: dms
 spec:
   parentRefs:
-  - name: dms-gateway
+  - name: mail
     namespace: kgateway-system
     sectionName: imaps
   rules:

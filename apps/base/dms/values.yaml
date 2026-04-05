@@ -1,4 +1,4 @@
-## helm upgrade --install docker-mailserver docker-mailserver/docker-mailserver --namespace dms --create-namespace -f dms/values.yaml 
+## helm upgrade --install docker-mailserver docker-mailserver/docker-mailserver --namespace dms --create-namespace -f dms/values.yaml
 
 ## Specify the name of a TLS secret that contains a certificate and private key for your email domain.
 ## See https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets
@@ -6,4 +6,4 @@ certificate: mail-tls
 
 deployment:
   env:
-    OVERRIDE_HOSTNAME: mail-test.doblerones.de       # You must OVERRIDE this!
+    OVERRIDE_HOSTNAME: mail-test.doblerones.de # You must OVERRIDE this!

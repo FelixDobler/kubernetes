@@ -1,6 +1,3 @@
-# TODO find way to include kubernetes gateway api
-# kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.0/standard-install.yaml
-# kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/experimental-install.yaml
 ---
 apiVersion: v1
 kind: Namespace
@@ -19,8 +16,8 @@ spec:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
   ref:
-    semver: "2.2.1"
-    # tag: "2.2.1"
+    # semver: "2.2.1"
+    tag: "2.2.1"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -52,8 +49,8 @@ spec:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
   ref:
-    semver: "2.2.1"
-    # tag: "2.2.1"
+    # semver: "2.2.1"
+    tag: "2.2.1"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
