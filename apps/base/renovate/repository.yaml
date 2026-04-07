@@ -1,0 +1,14 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: renovate
+  namespace: flux-system
+spec:
+  interval: 12h
+  url: oci://ghcr.io/renovatebot/charts/renovate
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: copy
+  ref:
+    semver: "46.100.x"
