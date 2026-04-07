@@ -16,7 +16,9 @@ spec:
     kind: OCIRepository
     name: renovate
     namespace: flux-system
-  values: {}
+  values:
+    renovate:
+      configIsSecret: true
   valuesFrom:
     - kind: Secret
       name: renovate-selfhosted-config
