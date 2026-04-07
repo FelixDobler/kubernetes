@@ -10,6 +10,8 @@ patches:
   - path: dms/release-patch.yaml
     target:
       kind: HelmRelease
+      namespace: dms
   - path: dms/cert-patch.yaml
     target:
       kind: Certificate
+      namespace: dms
