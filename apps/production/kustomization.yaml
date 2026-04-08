@@ -19,9 +19,13 @@ patches:
       namespace: dms
   - path: bentopdf/listenerset-patch.yaml
     target:
-      kind: ListenerSet
+      kind: XListenerSet
       namespace: bentopdf
   - path: bentopdf/release-values-patch.yaml
     target:
       kind: HelmRelease
+      namespace: bentopdf
+  - path: bentopdf/cert-patch.yaml
+    target:
+      kind: Certificate
       namespace: bentopdf

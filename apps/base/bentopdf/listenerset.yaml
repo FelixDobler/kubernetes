@@ -19,7 +19,7 @@ spec:
     tls:
       mode: Terminate
       certificateRefs:
-        - name: tls
+        - name: bentopdf-tls
           kind: Secret
     allowedRoutes:
       kinds:
