@@ -1,0 +1,36 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: bentopdf
+  namespace: bentopdf
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: chart/
+      sourceRef:
+        kind: GitRepository
+        name: bentopdf
+        namespace: flux-system
+  values:
+    httpRoute:
+      enabled: true
+      parentRefs:
+        - name: bentopdf
+          namespace: bentopdf
+          kind: XListenerSet
+          group: gateway.networking.x-k8s.io
+      hostnames:
+        - example.org
+      rules:
+        - matches:
+            - path: { type: PathPrefix, value: / }
+          filters:
+            - type: ResponseHeaderModifier
+              responseHeaderModifier:
+                set:
+                  - name: Cross-Origin-Opener-Policy
+                    value: same-origin
+                  - name: Cross-Origin-Embedder-Policy
+                    value: require-corp

@@ -1,0 +1,31 @@
+apiVersion: gateway.networking.x-k8s.io/v1alpha1
+kind: XListenerSet
+metadata:
+  name: bentopdf
+  namespace: bentopdf
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  parentRef:
+    name: http-s
+    namespace: kgateway-system
+    kind: Gateway
+    group: gateway.networking.k8s.io
+  listeners:
+  - protocol: HTTPS
+    port: 443
+    hostname: example.org
+    name: https
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: tls
+          kind: Secret
+    allowedRoutes:
+      kinds:
+        - kind: HTTPRoute
+      namespaces:
+        from: Selector
+        selector:
+          matchLabels:
+            kubernetes.io/metadata.name: bentopdf

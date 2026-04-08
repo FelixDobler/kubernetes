@@ -1,0 +1,15 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: bentopdf
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://github.com/alam00000/bentopdf.git
+  ref:
+    tag: v2.8.2
+  ignore: |
+    # exclude all
+    /*
+    # include charts directory
+    !/chart/

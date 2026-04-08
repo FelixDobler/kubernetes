@@ -6,6 +6,8 @@ resources:
 
   - renovate/secret.yaml
   - ../base/renovate
+
+  - ../base/bentopdf
 patches:
   - path: dms/release-patch.yaml
     target:
@@ -15,3 +17,11 @@ patches:
     target:
       kind: Certificate
       namespace: dms
+  - path: bentopdf/listenerset-patch.yaml
+    target:
+      kind: ListenerSet
+      namespace: bentopdf
+  - path: bentopdf/release-values-patch.yaml
+    target:
+      kind: HelmRelease
+      namespace: bentopdf
