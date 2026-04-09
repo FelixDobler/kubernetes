@@ -21,6 +21,7 @@ spec:
           namespace: bentopdf
           kind: XListenerSet
           group: gateway.networking.x-k8s.io
+          sectionName: https-bentopdf
       hostnames:
         - example.org
       rules:
