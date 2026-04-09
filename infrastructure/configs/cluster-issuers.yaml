@@ -7,7 +7,7 @@ spec:
   acme:
     email: felix.dobler.fd@gmail.com
     # The server is replaced in /clusters/production/infrastructure.yaml
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
       name: letsencrypt
