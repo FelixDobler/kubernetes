@@ -16,6 +16,7 @@ spec:
     kind: OCIRepository
     name: renovate
     namespace: flux-system
+  # TODO fix way of providing config
   values:
     renovate:
       configIsSecret: true

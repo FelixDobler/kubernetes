@@ -1,13 +1,17 @@
 {
     "terminal.integrated.env.windows": {
-        "KUBECONFIG": "C:/Users/felix/Desktop/k3s.yaml"
+        "KUBECONFIG": "C:/Users/felix/Desktop/k3s.yaml",
+        "SOPS_EDITOR": "edit.exe"
     },
     "cSpell.words": [
+        "bento",
+        "bentopdf",
         "crds",
         "fluxcd",
         "imaps",
         "jetstack",
         "kgateway",
+        "listenerset",
         "mailserver",
         "podinfo"
     ]
