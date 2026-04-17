@@ -8,7 +8,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
   name: kgateway-crds
-  namespace: kgateway-system
+  namespace: flux-system
 spec:
   interval: 12h
   url: oci://cr.kgateway.dev/kgateway-dev/charts/kgateway-crds
@@ -16,8 +16,8 @@ spec:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
   ref:
-    semver: "2.2.1"
-    # tag: "2.2.1"
+    # semver: "2.2.1"
+    tag: "v2.2.1"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -35,13 +35,14 @@ spec:
   chartRef:
     kind: OCIRepository
     name: kgateway-crds
+    namespace: flux-system
   values: {}
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
   name: kgateway
-  namespace: kgateway-system
+  namespace: flux-system
 spec:
   interval: 12h
   url: oci://cr.kgateway.dev/kgateway-dev/charts/kgateway
@@ -49,8 +50,8 @@ spec:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy
   ref:
-    semver: "2.2.1"
-    # tag: "2.2.1"
+    # semver: "2.2.1"
+    tag: "v2.2.1"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -70,6 +71,7 @@ spec:
   chartRef:
     kind: OCIRepository
     name: kgateway
+    namespace: flux-system
   values:
     controller:
       extraEnv:
