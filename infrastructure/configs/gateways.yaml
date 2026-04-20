@@ -117,7 +117,7 @@ metadata:
 spec:
   infrastructure:
     parametersRef:
-      group: ""
+      group: gateway.kgateway.dev
       kind: GatewayParameters
       name: service-traffic-policy-local
   gatewayClassName: kgateway
