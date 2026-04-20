@@ -1,0 +1,12 @@
+kind: BackendConfigPolicy
+apiVersion: gateway.kgateway.dev/v1alpha1
+metadata:
+  name: http-proxy-protocol-policy
+  namespace: pp-test
+spec:
+  targetRefs:
+    - name: nginx-proxy-proto
+      group: ""
+      kind: Service
+  upstreamProxyProtocol:
+    version: V1

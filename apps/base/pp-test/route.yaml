@@ -1,0 +1,14 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: nginx-route
+  namespace: pp-test
+spec:
+  parentRefs:
+    - name: pp-test
+      namespace: kgateway-system
+      kind: Gateway
+  rules:
+    - backendRefs:
+        - name: nginx-proxy-proto
+          port: 80

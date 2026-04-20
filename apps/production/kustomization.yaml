@@ -8,6 +8,8 @@ resources:
   - ../base/renovate
 
   - ../base/bentopdf
+
+  - ../base/pp-test
 patches:
   - path: dms/release-patch.yaml
     target:

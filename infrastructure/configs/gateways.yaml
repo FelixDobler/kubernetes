@@ -97,3 +97,21 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: dms
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: pp-test
+  namespace: kgateway-system
+spec:
+  gatewayClassName: kgateway
+  listeners:
+    - name: http-alt
+      protocol: HTTP
+      port: 8080
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: pp-test

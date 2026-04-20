@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy-proto
+  namespace: pp-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-proxy-proto
+  template:
+    metadata:
+      labels:
+        app: nginx-proxy-proto
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+      volumes:
+        - name: config
+          configMap:
+            name: nginx-proxy-proto-config
