@@ -1,0 +1,15 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: renovate
+  namespace: renovate
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: renovate
+    namespace: flux-system
+  # TODO fix way of providing config
+  values:
+    env:
+      LOG_LEVEL: debug

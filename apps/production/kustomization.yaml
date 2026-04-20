@@ -19,6 +19,10 @@ patches:
     target:
       kind: Certificate
       namespace: dms
+  - path: renovate/release-patch.yaml
+    target:
+      kind: HelmRelease
+      namespace: renovate
   - path: bentopdf/listenerset-patch.yaml
     target:
       kind: XListenerSet
