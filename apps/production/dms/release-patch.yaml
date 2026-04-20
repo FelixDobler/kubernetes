@@ -6,6 +6,11 @@ metadata:
 spec:
   chart:
     spec:
+      chart: docker-mailserver
+      sourceRef:
+        kind: HelmRepository
+        name: docker-mailserver
+        namespace: flux-system
       version: "5.1.1"
   values:
     deployment:
