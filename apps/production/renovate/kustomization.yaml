@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: renovate
 resources:
   - secret.yaml
-  - /production/base/renovate
+  - /production/renovate
 
 patches:
   - path: renovate/release-patch.yaml

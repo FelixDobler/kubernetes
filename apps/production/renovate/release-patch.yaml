@@ -13,3 +13,4 @@ spec:
   values:
     env:
       LOG_LEVEL: debug
+      RENOVATE_X_SQLITE_PACKAGE_CACHE: true
