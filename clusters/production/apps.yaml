@@ -21,7 +21,7 @@ spec:
       name: sops-age
   patches:
     - patch: |
-        - op: create
+        - op: add
           path: /spec/decryption
           value:
             provider: sops
