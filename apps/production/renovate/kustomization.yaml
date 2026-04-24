@@ -4,10 +4,10 @@ kind: Kustomization
 namespace: renovate
 resources:
   - secret.yaml
-  - /production/renovate
+  - ../../base/renovate
 
 patches:
-  - path: renovate/release-patch.yaml
+  - path: release-patch.yaml
     target:
       kind: HelmRelease
       namespace: renovate
