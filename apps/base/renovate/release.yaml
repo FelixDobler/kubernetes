@@ -20,6 +20,9 @@ spec:
   values:
     renovate:
       configIsSecret: true
+      persistence:
+        cache:
+          enabled: true
   valuesFrom:
     - kind: Secret
       name: renovate-selfhosted-config
