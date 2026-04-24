@@ -15,6 +15,11 @@ spec:
       copy:
         - from: "@monorepo/infrastructure/**"
           to: "@artifact/"
+    - name: app-kustomizations
+      originRevision: "@monorepo"
+      copy:
+        - from: "@monorepo/clusters/production/apps"
+          to: "@artifact/"
     - name: apps
       originRevision: "@monorepo"
       copy:

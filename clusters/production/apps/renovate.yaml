@@ -1,0 +1,17 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: renovate
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: production-apps
+  interval: 1h
+  retryInterval: 2m  
+  timeout: 5m
+  sourceRef:
+    kind: ExternalArtifact
+    name: apps
+  path: ./production/renovate
+  prune: true
+  wait: true
