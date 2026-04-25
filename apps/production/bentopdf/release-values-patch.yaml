@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/values/httpRoute/hostnames/0
-  value: pdf.k8s.doblerones.de

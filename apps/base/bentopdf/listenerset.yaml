@@ -14,7 +14,7 @@ spec:
   listeners:
   - protocol: HTTPS
     port: 443
-    hostname: example.org
+    hostname: "${application_hostname}"
     name: https-bentopdf
     tls:
       mode: Terminate

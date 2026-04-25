@@ -23,7 +23,7 @@ spec:
           group: gateway.networking.x-k8s.io
           sectionName: https-bentopdf
       hostnames:
-        - example.org
+        - "${application_hostname}"
       rules:
         - matches:
             - path: { type: PathPrefix, value: / }

@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/listeners/0/hostname
-  value: pdf.k8s.doblerones.de

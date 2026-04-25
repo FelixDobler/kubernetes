@@ -4,11 +4,6 @@ kind: Kustomization
 resources:
   - ../base/dms
 
-  # - renovate/secret.yaml
-  # - ../base/renovate
-
-  - ../base/bentopdf
-
   - ../base/pp-test
 patches:
   - path: dms/release-patch.yaml
@@ -19,19 +14,3 @@ patches:
     target:
       kind: Certificate
       namespace: dms
-  # - path: renovate/release-patch.yaml
-  #   target:
-  #     kind: HelmRelease
-  #     namespace: renovate
-  - path: bentopdf/listenerset-patch.yaml
-    target:
-      kind: XListenerSet
-      namespace: bentopdf
-  - path: bentopdf/release-values-patch.yaml
-    target:
-      kind: HelmRelease
-      namespace: bentopdf
-  - path: bentopdf/cert-patch.yaml
-    target:
-      kind: Certificate
-      namespace: bentopdf

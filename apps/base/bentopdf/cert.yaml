@@ -8,5 +8,5 @@ spec:
     kind: ClusterIssuer
     name: letsencrypt
   dnsNames:
-    - example.org
+    - "${application_hostname}"
   secretName: bentopdf-tls
