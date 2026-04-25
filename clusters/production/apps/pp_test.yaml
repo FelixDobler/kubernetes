@@ -1,22 +1,17 @@
----
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: production-monolith-apps
+  name: bentopdf
   namespace: flux-system
 spec:
   dependsOn:
-    - name: infra-configs
+    - name: production-apps
   interval: 1h
-  retryInterval: 2m
+  retryInterval: 2m  
   timeout: 5m
   sourceRef:
     kind: ExternalArtifact
     name: apps
-  path: ./production
+  path: ./base/pp-test
   prune: true
   wait: true
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age

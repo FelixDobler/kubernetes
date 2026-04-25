@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: not-used
+  name: arbitrary-name
 spec:
   chart:
     spec:
@@ -15,4 +15,4 @@ spec:
   values:
     deployment:
       env:
-        OVERRIDE_HOSTNAME: mail-test.doblerones.de # You must OVERRIDE this!
+        OVERRIDE_HOSTNAME: ${application_hostname} # You must OVERRIDE this!
