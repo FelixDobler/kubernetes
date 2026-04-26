@@ -14,14 +14,3 @@ spec:
     kind: ExternalArtifact
     name: app-kustomizations
   prune: true
-  patches:
-    - patch: |
-        - op: add
-          path: /spec/decryption
-          value:
-            provider: sops
-            secretRef:
-              name: sops-age
-      target:
-        kind: Kustomization
-        group: kustomize.toolkit.fluxcd.io

@@ -12,6 +12,10 @@ spec:
   sourceRef:
     kind: ExternalArtifact
     name: apps
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   path: ./production/renovate
   prune: true
   wait: true
