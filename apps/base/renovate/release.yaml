@@ -16,15 +16,17 @@ spec:
     kind: OCIRepository
     name: renovate
     namespace: flux-system
-  # TODO fix way of providing config
   values:
     renovate:
-      configIsSecret: true
+      existingConfigFile: /usr/src/app/config.json
       persistence:
         cache:
           enabled: true
-  valuesFrom:
-    - kind: Secret
-      name: renovate-selfhosted-config
-      valuesKey: config
-      targetPath: renovate.config
+    extraVolumes:
+      - name: secret-volume
+        secret:
+          secretName: renovate-selfhosted-config
+    extraVolumeMounts:
+      - name: secret-volume
+        mountPath: /usr/src/app/config.json
+        subPath: config
