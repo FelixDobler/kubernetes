@@ -1,0 +1,12 @@
+bento
+bentopdf
+crds
+fluxcd
+imaps
+jetstack
+kgateway
+kustomizations
+lastmodified
+listenerset
+mailserver
+podinfo

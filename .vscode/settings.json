@@ -1,18 +1,14 @@
 {
     "terminal.integrated.env.windows": {
-        "KUBECONFIG": "C:/Users/felix/Desktop/k3s.yaml",
+        // "KUBECONFIG": "C:/Users/felix/Desktop/k3s.yaml",
         "SOPS_EDITOR": "edit.exe"
     },
-    "cSpell.words": [
-        "bento",
-        "bentopdf",
-        "crds",
-        "fluxcd",
-        "imaps",
-        "jetstack",
-        "kgateway",
-        "listenerset",
-        "mailserver",
-        "podinfo"
-    ]
+    "cSpell.customDictionaries": {
+        "project-dictionary": {
+            "name": "project-dictionary",
+            "path": "${workspaceRoot}/project-dictionary.txt",
+            "description": "Words used in this project",
+            "addWords": true
+        }
+    }
 }
