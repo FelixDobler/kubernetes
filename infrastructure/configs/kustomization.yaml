@@ -6,3 +6,4 @@ resources:
   - cluster-issuers.yaml
   - flux/notification-provider.yaml
   - flux/provider-secret.yaml
+  - flux/alerts.yaml
