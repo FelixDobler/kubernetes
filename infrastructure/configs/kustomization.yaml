@@ -4,3 +4,5 @@ resources:
   - gateways.yaml
   - https_redirect.yaml
   - cluster-issuers.yaml
+  - flux/notification-provider.yaml
+  - flux/provider-secret.yaml

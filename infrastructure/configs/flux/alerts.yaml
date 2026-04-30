@@ -1,0 +1,44 @@
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: matrix-infrastructure
+  namespace: flux-system
+spec:
+  providerRef:
+    name: matrix-bot
+  eventMetadata:
+    summary: Production Infrastructure impacted
+    env: prod
+    cluster: production
+    region: tue
+  eventSeverity: error
+  eventSources:
+    - kind: Kustomization
+      name: infra-crds
+    - kind: Kustomization
+      name: infra-controllers
+    - kind: Kustomization
+      name: infra-configs
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: matrix-apps
+  namespace: flux-system
+spec:
+  providerRef:
+    name: matrix-bot
+  eventMetadata:
+    summary: Production Apps impacted
+    env: prod
+    cluster: production
+    region: tue
+  eventSeverity: error
+  eventSources:
+    - kind: GitRepository
+      name: "*"
+    - kind: Kustomization
+      name: "*"
+    - kind: HelmRelease
+      name: "*"
