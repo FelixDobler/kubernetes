@@ -7,3 +7,4 @@ resources:
   - flux/notification-provider.yaml
   - flux/provider-secret.yaml
   - flux/alerts.yaml
+  - error-test.yaml
