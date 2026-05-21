@@ -10,3 +10,5 @@ lastmodified
 listenerset
 mailserver
 podinfo
+renovatebot
+trunc
