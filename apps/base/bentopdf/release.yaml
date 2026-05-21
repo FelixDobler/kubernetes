@@ -19,8 +19,8 @@ spec:
       parentRefs:
         - name: bentopdf
           namespace: bentopdf
-          kind: XListenerSet
-          group: gateway.networking.x-k8s.io
+          kind: ListenerSet
+          group: gateway.networking.k8s.io/v1
           sectionName: https-bentopdf
       hostnames:
         - "${application_hostname}"
