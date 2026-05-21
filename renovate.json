@@ -1,8 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  
+  "extends": ["config:recommended"],
   "dependencyDashboard": true,
   "flux": {
     "managerFilePatterns": ["/^(apps|clusters|infrastructure)\\/.*\\.ya?ml$/"]
-  }
+  },
+  "packageRules": [
+    {
+      "versioning": "semver",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["cr.kgateway.dev/kgateway-dev/charts/kgateway*"]
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "matchPackageNames": ["ghcr.io/renovatebot/charts/renovate"]
+    }
+  ]
 }
