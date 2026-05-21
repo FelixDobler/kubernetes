@@ -4,6 +4,7 @@
     "config:recommended"
   ],
   "dependencyDashboard": true,
+  "configMigration": true,
   "ignoreTests": true,
   "flux": {
     "managerFilePatterns": [
@@ -13,11 +14,9 @@
   "packageRules": [
     {
       "versioning": "semver",
+      "matchManagers": ["flux"],
       "matchDatasources": [
         "docker"
-      ],
-      "matchPackageNames": [
-        "cr.kgateway.dev/kgateway-dev/charts/kgateway*"
       ]
     },
     {
@@ -29,6 +28,12 @@
       "automerge": true,
       "matchPackageNames": [
         "ghcr.io/renovatebot/charts/renovate"
+      ]
+    },
+    {
+      "abandonmentThreshold": "1 year",
+      "matchPackageNames": [
+        "*"
       ]
     }
   ]
