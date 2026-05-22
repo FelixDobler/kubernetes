@@ -11,15 +11,18 @@
       "/^(apps|clusters|infrastructure)\\/.*\\.ya?ml$/"
     ]
   },
+  // MARK: Package Rules
   "packageRules": [
     {
+      // fix versioning for image/helm to support proper semver
       "versioning": "semver",
-      "matchManagers": ["flux"],
+      "matchManagers": [ "flux" ],
       "matchDatasources": [
         "docker"
       ]
     },
     {
+      // automerge non-breaking version upgrades for these packages
       "matchUpdateTypes": [
         "minor",
         "patch"
@@ -31,10 +34,17 @@
       ]
     },
     {
-      "abandonmentThreshold": "1 year",
+      // notify about abandoned packages
+      "abandonmentThreshold": "6 months",
       "matchPackageNames": [
         "*"
       ]
+    },
+    {
+      // kgateway updates (app and crds) should be carried out together
+      "matchPackageNames": [ "cr.kgateway.dev/kgateway-dev/charts/kgateway*" ],
+      "groupName": "kgateway (app and crds)",
+      "groupSlug": "kgateway"
     }
   ]
 }
