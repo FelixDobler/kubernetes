@@ -1,0 +1,8 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: longhorn-snapshot-test
+spec:
+  volumeSnapshotClassName: longhorn
+  source:
+    persistentVolumeClaimName: longhorn-vol-pvc
