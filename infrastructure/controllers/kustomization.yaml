@@ -4,3 +4,4 @@ resources:
   - cert-manager.yaml
   - kgateway.yaml
   - longhorn.yaml
+  - snapshot-controller.yaml

@@ -1,0 +1,15 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: snapshot-controller
+  namespace: flux-system
+spec:
+  interval: 30m
+  sourceRef:
+    kind: GitRepository
+    name: external-snapshotter
+  path: ./deploy/kubernetes/snapshot-controller
+  prune: true
+  dependsOn:
+    - name: snapshot-crds
