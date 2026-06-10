@@ -9,6 +9,7 @@ kustomizations
 lastmodified
 listenerset
 mailserver
+openebs
 podinfo
 renovatebot
 trunc

@@ -8,3 +8,4 @@ resources:
   - flux/provider-secret.yaml
   - flux/alerts.yaml
   - volumeSnapshotClass.yaml
+  - storageclass.yaml
