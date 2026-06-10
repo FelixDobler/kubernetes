@@ -4,3 +4,4 @@ resources:
   - cert-manager.yaml
   - kgateway.yaml
   - snapshot-controller.yaml
+  - openebs.yaml
