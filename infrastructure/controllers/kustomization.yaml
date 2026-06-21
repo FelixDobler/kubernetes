@@ -5,3 +5,5 @@ resources:
   - kgateway.yaml
   - snapshot-controller.yaml
   - openebs.yaml
+  - velero/velero.yaml
+  - velero/velero-credentials.yaml
