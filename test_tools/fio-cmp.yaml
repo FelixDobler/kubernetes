@@ -5,7 +5,7 @@ metadata:
 spec:
   volumeMode: Filesystem
   #volumeMode: Block
-  #storageClassName: longhorn  # replace with your storage class
+  #storageClassName: openebs-zfspv  # replace with your storage class
   storageClassName: local-path
   accessModes:
     - ReadWriteOnce
@@ -20,7 +20,7 @@ metadata:
 spec:
   volumeMode: Filesystem
   #volumeMode: Block
-  storageClassName: longhorn  # replace with your storage class
+  storageClassName: openebs-zfspv  # replace with your storage class
   #storageClassName: local-path
   accessModes:
     - ReadWriteOnce
@@ -76,7 +76,7 @@ spec:
         - name: FIRST_VOL_FILE
           value: "/volume1/test"
         - name: SECOND_VOL_NAME
-          value: Longhorn
+          value: Openebs
         - name: SECOND_VOL_FILE
           value: "/volume2/test"
         - name: SIZE

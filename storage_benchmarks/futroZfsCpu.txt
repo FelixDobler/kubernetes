@@ -1,0 +1,24 @@
+Futro with zfs pool-dataset
+=========================
+FIO Benchmark Summary
+For: ./test_device
+CPU Idleness Profiling: enabled
+Size: 15G
+Mode: full
+=========================
+IOPS (Read/Write)
+        Random:                988 / 392
+    Sequential:           1,179 / 14,782
+  CPU Idleness:                      78%
+
+Bandwidth in KiB/sec (Read/Write)
+        Random:         124,527 / 50,563
+    Sequential:         137,078 / 58,249
+  CPU Idleness:                      83%
+
+Latency in ns (Read/Write)
+        Random:      982,642 / 2,846,247
+    Sequential:       1,080,002 / 68,814
+
+Latency in ns (Read/Write)
+  CPU Idleness:                      83%

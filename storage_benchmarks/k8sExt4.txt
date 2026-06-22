@@ -1,0 +1,21 @@
+K8s-VM with Disk Passthrough Ext4
+
+=========================
+FIO Benchmark Summary
+For: ./test_device
+CPU Idleness Profiling: disabled
+Size: 15G
+Mode: full
+=========================
+IOPS (Read/Write)
+        Random:          36,506 / 30,198
+    Sequential:          36,070 / 30,625
+
+Bandwidth in KiB/sec (Read/Write)
+        Random:        439,393 / 134,184
+    Sequential:        444,847 / 134,150
+
+
+Latency in ns (Read/Write)
+        Random:        517,015 / 209,211
+    Sequential:        188,623 / 203,773

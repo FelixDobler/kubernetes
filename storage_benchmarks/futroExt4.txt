@@ -1,0 +1,20 @@
+Proxmox host with direct Disk Ext4
+=========================
+FIO Benchmark Summary
+For: ./test_device
+CPU Idleness Profiling: disabled
+Size: 15G
+Mode: full
+=========================
+IOPS (Read/Write)
+        Random:          49,324 / 33,412
+    Sequential:          54,053 / 33,645
+
+Bandwidth in KiB/sec (Read/Write)
+        Random:        435,709 / 134,216
+    Sequential:        439,607 / 133,574
+
+
+Latency in ns (Read/Write)
+        Random:         161,905 / 61,727
+    Sequential:          54,844 / 58,742

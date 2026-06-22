@@ -1,0 +1,19 @@
+│ ================================                                                                                                                                                         │
+│ FIO Benchmark Comparsion Summary                                                                                                                                                         │
+│ For: Local-Path vs Openebs ZFS                                                                                                                                                              │
+│ CPU Idleness Profiling: disabled                                                                                                                                                         │
+│ Size: 3G                                                                                                                                                                                 │
+│ Quick Mode: disabled                                                                                                                                                                     │
+│ ================================                                                                                                                                                         │
+│                               Local-Path   vs              Openebs-ZFS    :              Change                                                                                          │
+│ IOPS (Read/Write)                                                                                                                                                                        │
+│         Random:           18,667 / 2,133   vs                804 / 747    :   -95.69% / -64.98%                                                                                          │
+│     Sequential:            7,428 / 4,139   vs             797 / 11,010    :   -89.27% / 166.01%                                                                                          │
+│                                                                                                                                                                                          │
+│ Bandwidth in KiB/sec (Read/Write)                                                                                                                                                        │
+│         Random:         211,399 / 58,789   vs         101,160 / 86,106    :    -52.15% / 46.47%                                                                                          │
+│     Sequential:         273,021 / 51,721   vs         101,963 / 90,881    :    -62.65% / 75.71%                                                                                          │
+│                                                                                                                                                                                          │
+│ Latency in ns (Read/Write)                                                                                                                                                               │
+│         Random:        662,569 / 408,652   vs    1,286,968 / 2,040,326    :    94.24% / 399.28%                                                                                          │
+│     Sequential:        530,096 / 305,720   vs       1,270,999 / 92,337    :   139.77% / -69.80%    

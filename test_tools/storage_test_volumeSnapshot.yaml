@@ -1,0 +1,59 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: storage-snapshot-test
+spec:
+  volumeSnapshotClassName: zfspv-snapclass
+  source:
+    persistentVolumeClaimName: storage-vol-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: storage-restore-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: openebs-zfspv
+  dataSource:
+    kind: VolumeSnapshot
+    name: storage-snapshot-test
+    apiGroup: snapshot.storage.k8s.io
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storage-volume-restore-test
+  namespace: default
+spec:
+  restartPolicy: Always
+  containers:
+    - name: volume-test
+      image: busybox:latest
+      imagePullPolicy: IfNotPresent
+      command:
+        - sh
+        - -c
+        - |
+          echo "ready"
+          ls -la /data
+          cat /data/pv-test.txt
+          sleep infinity
+      livenessProbe:
+        exec:
+          command:
+            - test
+            - -f
+            - /data/pv-test.txt
+        initialDelaySeconds: 5
+        periodSeconds: 10
+      volumeMounts:
+        - name: vol
+          mountPath: /data
+  volumes:
+    - name: vol
+      persistentVolumeClaim:
+        claimName: storage-restore-pvc
