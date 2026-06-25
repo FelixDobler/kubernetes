@@ -1,0 +1,16 @@
+# ❯ velero backup-location create -o yaml --default --bucket velero-backups --provider aws --config region=garage,s3ForcePathStyle=true,s3Url=https://test123:3900 default
+apiVersion: velero.io/v1
+kind: BackupStorageLocation
+metadata:
+  name: default
+  namespace: velero
+spec:
+  accessMode: ReadWrite
+  config:
+    region: garage
+    s3ForcePathStyle: "true"
+    s3Url: https://s3.doblerones.de:3900
+  default: true
+  objectStorage:
+    bucket: velero-backups
+  provider: aws

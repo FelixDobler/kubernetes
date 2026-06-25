@@ -9,3 +9,4 @@ resources:
   - flux/alerts.yaml
   - volumeSnapshotClass.yaml
   - storageclass.yaml
+  - velero/backupStorageLocation.yaml
