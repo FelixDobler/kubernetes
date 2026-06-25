@@ -5,12 +5,12 @@ metadata:
   name: default
   namespace: velero
 spec:
+  provider: aws
   accessMode: ReadWrite
+  default: true
   config:
+    s3Url: https://s3.doblerones.de:3900
     region: garage
     s3ForcePathStyle: "true"
-    s3Url: https://s3.doblerones.de:3900
-  default: true
   objectStorage:
     bucket: velero-backups
-  provider: aws

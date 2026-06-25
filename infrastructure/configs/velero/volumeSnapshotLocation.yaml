@@ -1,0 +1,15 @@
+apiVersion: velero.io/v1
+kind: VolumeSnapshotLocation
+metadata:
+  name: zfspv
+  namespace: velero
+spec:
+  provider: openebs.io/zfspv-blockstore
+  config:
+    provider: aws
+    s3Url: https://s3.doblerones.de:3900
+    region: garage
+    s3ForcePathStyle: "true"
+    bucket: velero-backups
+    prefix: zfs
+    namespace: openebs # this is the namespace where ZFS-LocalPV creates all the CRs, passed as OPENEBS_NAMESPACE env in the ZFS-LocalPV deployment

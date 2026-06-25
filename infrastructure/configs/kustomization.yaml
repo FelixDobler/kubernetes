@@ -10,3 +10,4 @@ resources:
   - volumeSnapshotClass.yaml
   - storageclass.yaml
   - velero/backupStorageLocation.yaml
+  - velero/volumeSnapshotLocation.yaml
