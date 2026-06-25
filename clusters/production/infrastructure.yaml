@@ -30,6 +30,10 @@ spec:
     kind: ExternalArtifact
     name: infrastructure
   path: ./controllers
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   prune: true
   wait: true
 ---
