@@ -7,7 +7,7 @@ spec:
   interval: 1h
   url: https://github.com/alam00000/bentopdf.git
   ref:
-    tag: v2.8.5
+    tag: v2.8.6
   ignore: |
     # exclude all
     /*
