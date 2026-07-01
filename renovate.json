@@ -29,6 +29,7 @@
       ],
       "matchCurrentVersion": "!/^0/",
       "automerge": true,
+      "automergeType": "branch",
       "matchPackageNames": [
         "ghcr.io/renovatebot/charts/renovate"
       ]
