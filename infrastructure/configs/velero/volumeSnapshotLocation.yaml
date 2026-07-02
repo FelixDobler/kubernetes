@@ -13,3 +13,4 @@ spec:
     bucket: velero-backups
     prefix: zfs
     namespace: openebs # this is the namespace where ZFS-LocalPV creates all the CRs, passed as OPENEBS_NAMESPACE env in the ZFS-LocalPV deployment
+    # TODO include incrBackupCount https://openebs.io/docs/user-guides/local-storage-user-guide/local-pv-zfs/advanced-operations/zfs-backup-restore#things-to-consider

@@ -29,8 +29,16 @@ spec:
         name: vmware-tanzu
         namespace: velero
   values:
+    # disable default backupStorageLocation and volumeSnapshotLocation
     backupsEnabled: false
     snapshotsEnabled: false
+    
+    configuration:
+      features: "EnableCSI" # comma separated list of features to enable
+
+      defaultBackupStorageLocation: default
+      defaultVolumeSnapshotLocation: zfspv
+
     credentials:
       existingSecret: velero-credentials
     initContainers:
