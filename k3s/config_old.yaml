@@ -1,0 +1,15 @@
+disable:
+  - "traefik"
+  - "servicelb"
+
+node-ip:
+  - "10.41.0.10"
+  - "fd00:cafe:41::10"
+
+tls-san:
+  - "192.168.1.100"
+cluster-cidr: 10.42.0.0/16,fd00:cafe:42::/56
+service-cidr: 10.43.0.0/16,fd00:cafe:43::/108
+
+flannel-backend: "none"
+disable-network-policy: true
