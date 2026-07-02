@@ -16,7 +16,7 @@
     {
       // support for github-release and other datasources via custom definition in .version files
       "customType": "regex",
-      "fileMatch": ["*.version"],
+      "managerFilePatterns": ["*.version"],
       "matchStrings": [
         "datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)\n(?<currentValue>.+)"
       ]
