@@ -18,7 +18,7 @@
       "customType": "regex",
       "managerFilePatterns": ["*.version"],
       "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)\n(?<currentValue>.+)"
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)\\n(?<currentValue>.+)"
       ]
     }
   ],
