@@ -11,6 +11,18 @@
       "/^(apps|clusters|infrastructure)\\/.*\\.ya?ml$/"
     ]
   },
+
+  "customManagers": [
+    {
+      // support for github-release and other datasources via custom definition in .version files
+      "customType": "regex",
+      "fileMatch": ["*.version"],
+      "matchStrings": [
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)\n(?<currentValue>.+)"
+      ]
+    }
+  ],
+
   // MARK: Package Rules
   "packageRules": [
     {
@@ -46,6 +58,12 @@
       "matchPackageNames": [ "cr.kgateway.dev/kgateway-dev/charts/kgateway*" ],
       "groupName": "kgateway (app and crds)",
       "groupSlug": "kgateway"
+    },
+    {
+      // prevent one-click merging of gateway api updates, as they need to be manually added to the repo
+      "matchPackageNames": ["kubernetes-sigs/gateway-api"],
+      "automerge": false,
+      "reviewers": ["FelixDobler"]
     }
   ]
 }
