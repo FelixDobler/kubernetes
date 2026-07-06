@@ -36,11 +36,19 @@ spec:
     configuration:
       features: "EnableCSI" # comma separated list of features to enable
 
+      # defaultSnapshotMoveData: true # enable when snapshot data movement is confirmed to work
+
       defaultBackupStorageLocation: default
       defaultVolumeSnapshotLocation: zfspv
 
     credentials:
       existingSecret: velero-credentials
+
+    nodeAgent:
+      disableHostPath: true
+      containerSecurityContext:
+        privileged: true
+
     initContainers:
       - name: velero-plugin-for-aws
         image: velero/velero-plugin-for-aws:v1.14.2
