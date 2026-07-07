@@ -44,6 +44,8 @@ spec:
     credentials:
       existingSecret: velero-credentials
 
+    deployNodeAgent: true
+
     nodeAgent:
       disableHostPath: true
       containerSecurityContext:
