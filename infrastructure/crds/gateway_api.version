@@ -1,2 +1,2 @@
 datasource=github-releases depName=kubernetes-sigs/gateway-api versioning=semver
-v1.5.1
+v1.6.1
