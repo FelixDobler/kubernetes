@@ -6,7 +6,7 @@ metadata:
   namespace: kgateway-system
 spec:
   gatewayClassName: kgateway
-  defaultScope: All
+  # defaultScope: All # not supported in stable release?
   allowedListeners:
     namespaces:
       from: All
