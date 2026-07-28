@@ -14,6 +14,8 @@ spec:
         name: bentopdf
         namespace: flux-system
   values:
+    gateway:
+      enabled: false # use preexisting gateway
     httpRoute:
       enabled: true
       parentRefs:
