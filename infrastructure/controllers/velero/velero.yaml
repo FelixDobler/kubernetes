@@ -40,12 +40,12 @@ spec:
 
       defaultSnapshotMoveData: true # enable when snapshot data movement is confirmed to work
 
-      # Workaround for checksum issues with garagehq, potentially fixed in v2.2.0
-      # extraEnvVars:
-      #   - name: AWS_REQUEST_CHECKSUM_CALCULATION
-      #     value: when_required
-      #   - name: AWS_RESPONSE_CHECKSUM_VALIDATION
-      #     value: when_required
+      # Workaround for checksum issues with garagehq regarding multipart uploads
+      extraEnvVars:
+        - name: AWS_REQUEST_CHECKSUM_CALCULATION
+          value: when_required
+        - name: AWS_RESPONSE_CHECKSUM_VALIDATION
+          value: when_required
 
       defaultBackupStorageLocation: default
       defaultVolumeSnapshotLocation: zfspv
