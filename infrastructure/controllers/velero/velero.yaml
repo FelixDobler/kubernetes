@@ -28,6 +28,8 @@ spec:
         kind: HelmRepository
         name: vmware-tanzu
         namespace: velero
+  driftDetection:
+    mode: enabled
   values:
     # disable default backupStorageLocation and volumeSnapshotLocation
     backupsEnabled: false
