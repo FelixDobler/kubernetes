@@ -11,4 +11,9 @@ resources:
   - storageclass.yaml
   - velero/backupStorageLocation.yaml
   - velero/volumeSnapshotLocation.yaml
-  - velero/policies.yaml
+
+configMapGenerator:
+  - name: default-policy
+    namespace: velero
+    files:
+      - velero/defaultPolicy.yaml
