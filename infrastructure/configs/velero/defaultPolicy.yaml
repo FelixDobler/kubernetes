@@ -6,9 +6,8 @@ volumePolicies:
 # each key in the object is one condition, and one policy will apply to resources that meet ALL conditions
 # NOTE: capacity or storageClass is suited for [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes), and pod [Volume](https://kubernetes.io/docs/concepts/storage/volumes) not support it.
 - conditions:
-    volumeTypes:
-      - emptyDir
-      - configmap
+    pvcLabels:
+      velero.io/backup-volumes: "false"
   action:
     type: skip
 - conditions:
@@ -16,6 +15,12 @@ volumePolicies:
     csi: {}
   action:
     type: snapshot
+- conditions:
+    volumeTypes:
+      - emptyDir
+      - configmap
+  action:
+    type: skip
 - conditions: {}
   action:
     type: fs-backup

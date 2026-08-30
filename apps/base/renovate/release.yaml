@@ -22,6 +22,8 @@ spec:
       persistence:
         cache:
           enabled: true
+          labels:
+            velero.io/backup-volumes: "false"
     extraVolumes:
       - name: secret-volume
         secret:
