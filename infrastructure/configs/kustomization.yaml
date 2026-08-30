@@ -15,5 +15,7 @@ resources:
 configMapGenerator:
   - name: default-policy
     namespace: velero
+    options:
+      disableNameSuffixHash: true
     files:
       - velero/defaultPolicy.yaml
