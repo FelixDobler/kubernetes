@@ -1,11 +1,17 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: storage-vol-pvc
+  name: restore-pvc
+  namespace: storage-test
 spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: openebs-zfspv
+  dataSource:
+    kind: VolumeSnapshot
+    name: snapshot
+    apiGroup: snapshot.storage.k8s.io
   resources:
     requests:
       storage: 2Gi
@@ -13,8 +19,8 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: storage-volume-test
-  namespace: default
+  name: restore-workload
+  namespace: storage-test
 spec:
   restartPolicy: Always
   containers:
@@ -25,21 +31,14 @@ spec:
         - sh
         - -c
         - |
-          echo "PVC mounted successfully at $(date)" >> /data/pv-test.txt
           echo "ready"
+          ls -la /data
+          cat /data/pv-test.txt
           sleep infinity
-      livenessProbe:
-        exec:
-          command:
-            - test
-            - -d
-            - /data/
-        initialDelaySeconds: 5
-        periodSeconds: 10
       volumeMounts:
         - name: vol
           mountPath: /data
   volumes:
     - name: vol
       persistentVolumeClaim:
-        claimName: storage-vol-pvc
+        claimName: restore-pvc

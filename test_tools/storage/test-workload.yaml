@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: storage-test
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc
+  namespace: storage-test
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: openebs-zfspv
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workload
+  namespace: storage-test
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workload
+  template:
+    metadata:
+      labels:
+        app: workload
+    spec:
+      containers:
+          - name: volume-test
+            image: busybox:latest
+            imagePullPolicy: IfNotPresent
+            command:
+              - sh
+              - -c
+              - |
+                echo "PVC mounted successfully at $(date)" >> /data/pv-test.txt
+                cat /data/pv-test.txt
+                sleep infinity
+            volumeMounts:
+              - name: vol
+                mountPath: /data
+      volumes:
+        - name: vol
+          persistentVolumeClaim:
+            claimName: pvc
