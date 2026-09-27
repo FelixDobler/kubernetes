@@ -9,17 +9,20 @@ spec:
     name: matrix-bot
   eventMetadata:
     summary: Production Infrastructure impacted
-    env: prod
-    cluster: production
-    region: tue
   eventSeverity: error
   eventSources:
+    - kind: GitRepository
+      name: flux-system
     - kind: Kustomization
       name: infra-crds
     - kind: Kustomization
       name: infra-controllers
     - kind: Kustomization
       name: infra-configs
+  exclusionList:
+    - ".*https://github\\.com.*TLS handshake timeout.*"
+    - ".*https://github\\.com.*connection reset by peer.*"
+
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
@@ -31,9 +34,6 @@ spec:
     name: matrix-bot
   eventMetadata:
     summary: Production Apps impacted
-    env: prod
-    cluster: production
-    region: tue
   eventSeverity: error
   eventSources:
     - kind: GitRepository
@@ -42,3 +42,5 @@ spec:
       name: "*"
     - kind: HelmRelease
       name: "*"
+  exclusionList:
+    - ".*flux-system.*"
