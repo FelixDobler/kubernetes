@@ -4,4 +4,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - release.yaml
-# TODO make chart gateway compatible
+  - listenerset.yaml
+  - httproute.yaml
+  - tcproute.yaml
+  - tlsroute.yaml

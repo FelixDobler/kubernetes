@@ -2,13 +2,11 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: renovate
-  namespace: renovate
+  name: stalwart
 spec:
   chart:
     spec:
       chart: ./apps/base/stalwart/chart/
-      reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
         name: flux-system
@@ -20,5 +18,6 @@ spec:
   upgrade:
     strategy:
       name: RetryOnFailure
+
   values:
-# TODO
+    fullnameOverride: stalwart-stalwart

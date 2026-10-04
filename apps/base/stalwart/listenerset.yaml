@@ -1,0 +1,79 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: ListenerSet
+metadata:
+  name: webui
+  annotations: 
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  parentRef:
+    name: http-s
+    namespace: kgateway-system
+    kind: Gateway
+  listeners:
+  - protocol: HTTPS
+    port: 443
+    # yaml-language-server-disable String does not match the pattern of
+    hostname: "${application_hostname}"
+    name: https-stalwart
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: stalwart-webui-tls
+          kind: Secret
+    allowedRoutes:
+      kinds:
+        - kind: HTTPRoute
+      namespaces:
+        from: Same
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: ListenerSet
+metadata:
+  name: mail
+  annotations: 
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  parentRef:
+    name: mail
+    namespace: kgateway-system
+    kind: Gateway
+  listeners:
+  - protocol: TCP
+    port: 25
+    name: smtp
+    allowedRoutes:
+      kinds:
+        - kind: TCPRoute
+      namespaces:
+        from: Same
+  - protocol: TLS
+    port: 465
+    # yaml-language-server-disable String does not match the pattern of
+    hostname: "${application_hostname}"
+    name: smtps
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: bentopdf-mail-tls
+          kind: Secret
+    allowedRoutes:
+      kinds:
+        - kind: TLSRoute
+      namespaces:
+        from: Same
+  - protocol: TLS
+    port: 993
+    # yaml-language-server-disable String does not match the pattern of
+    hostname: "${application_hostname}"
+    name: imaps
+    tls:
+      mode: Terminate
+      certificateRefs:
+        - name: bentopdf-mail-tls
+          kind: Secret
+    allowedRoutes:
+      kinds:
+        - kind: TLSRoute
+      namespaces:
+        from: Same

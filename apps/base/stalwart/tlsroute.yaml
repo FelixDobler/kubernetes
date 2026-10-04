@@ -1,0 +1,34 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: TLSRoute
+metadata:
+  name: smtps
+spec:
+  parentRefs:
+    - kind: ListenerSet
+      name: mail
+      sectionName: smtps
+  hostnames:
+    # yaml-language-server-disable String does not match the pattern of
+    - ${application_hostname}
+  rules:
+    - backendRefs:
+        - name: ${stalwart_fullname}
+          port: 465
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: TLSRoute
+metadata:
+  name: imaps
+spec:
+  parentRefs:
+    - kind: ListenerSet
+      name: mail
+      sectionName: imaps
+  hostnames:
+    # yaml-language-server-disable String does not match the pattern of
+    - ${application_hostname}
+  rules:
+    - backendRefs:
+        - name: ${stalwart_fullname}
+          port: 993
+  

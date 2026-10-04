@@ -1,0 +1,15 @@
+# enables proxy protocol for all connections to stalwart service, 
+# stalwart should support this
+apiVersion: gateway.kgateway.dev/v1alpha1
+kind: BackendConfigPolicy
+metadata:
+  name: mail-proxy-protocol
+  namespace: stalwart
+spec:
+  targetRefs:
+  - group: ""
+    kind: Service
+    name: ${stalwart_fullname}
+
+  upstreamProxyProtocol:
+    version: V1
