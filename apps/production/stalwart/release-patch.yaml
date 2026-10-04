@@ -6,5 +6,5 @@ metadata:
 # yaml-language-server-disable Missing property
 spec:
   values:
-    recoveryMode:
-      enabled: true
+    # recoveryMode:
+    #   enabled: true
