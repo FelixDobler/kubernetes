@@ -84,8 +84,11 @@ spec:
         mode: Passthrough
       allowedRoutes:
         namespaces:
-          # yaml-language-server-disable Value is not accepted. Valid values: "All", "Selector", "Same".
-          from: None
+          from: Selector
+          selector:
+            matchExpressions:
+              - key: kubernetes.io/metadata.name
+                operator: DoesNotExist
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
