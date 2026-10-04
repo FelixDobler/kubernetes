@@ -1,21 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - gateways.yaml
-  - https_redirect.yaml
-  - cluster-issuers.yaml
-  - flux/notification-provider.yaml
-  - flux/provider-secret.yaml
-  - flux/alerts.yaml
+  - flux
+  - velero
+  - gateway
+  - clusterIssuers.yaml
   - volumeSnapshotClass.yaml
-  - storageclass.yaml
-  - velero/backupStorageLocation.yaml
-  - velero/volumeSnapshotLocation.yaml
-
-configMapGenerator:
-  - name: default-policy
-    namespace: velero
-    options:
-      disableNameSuffixHash: true
-    files:
-      - velero/defaultPolicy.yaml
+  - storageClass.yaml
