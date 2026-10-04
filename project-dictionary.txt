@@ -2,6 +2,7 @@ bento
 bentopdf
 crds
 fluxcd
+imap
 imaps
 jetstack
 kgateway
@@ -9,7 +10,13 @@ kustomizations
 lastmodified
 listenerset
 mailserver
+mgmt
+nindent
 openebs
 podinfo
 renovatebot
+smtps
+stalwartlabs
 trunc
+velero
+webui
