@@ -80,6 +80,12 @@ spec:
       hostname: dummy
       protocol: TLS
       port: 465
+      tls:
+        mode: Passthrough
+      allowedRoutes:
+        namespaces:
+          # yaml-language-server-disable Value is not accepted. Valid values: "All", "Selector", "Same".
+          from: None
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
