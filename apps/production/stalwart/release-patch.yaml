@@ -1,0 +1,10 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: stalwart
+# yaml-language-server-disable Missing property
+spec:
+  values:
+    recoveryMode:
+      enabled: true

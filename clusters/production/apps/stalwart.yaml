@@ -12,11 +12,10 @@ spec:
   sourceRef:
     kind: ExternalArtifact
     name: apps
-  path: ./base/stalwart
+  path: ./production/stalwart
   targetNamespace: stalwart
   prune: true
   wait: true
-  
   postBuild:
     substitute:
       application_hostname: mail2.doblerones.de
