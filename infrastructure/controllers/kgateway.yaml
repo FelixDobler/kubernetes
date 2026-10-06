@@ -74,3 +74,7 @@ spec:
     controller:
       extraEnv:
         KGW_ENABLE_GATEWAY_API_EXPERIMENTAL_FEATURES: "true" # enabled by default now
+    gatewayClassParametersRefs:
+      kgateway:
+        name: service-traffic-policy-local
+        namespace: kgateway-system

@@ -1,14 +1,4 @@
 ---
-apiVersion: gateway.kgateway.dev/v1alpha1
-kind: GatewayParameters
-metadata:
-  name: service-traffic-policy-local
-  namespace: kgateway-system
-spec:
-  kube:
-    service:
-      externalTrafficPolicy: Local
----
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -96,11 +86,6 @@ metadata:
   name: pp-test
   namespace: kgateway-system
 spec:
-  infrastructure:
-    parametersRef:
-      group: gateway.kgateway.dev
-      kind: GatewayParameters
-      name: service-traffic-policy-local
   gatewayClassName: kgateway
   listeners:
     - name: http-alt

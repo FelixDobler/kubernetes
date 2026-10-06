@@ -1,0 +1,10 @@
+---
+apiVersion: gateway.kgateway.dev/v1alpha1
+kind: GatewayParameters
+metadata:
+  name: service-traffic-policy-local
+  namespace: kgateway-system
+spec:
+  kube:
+    service:
+      externalTrafficPolicy: Local
